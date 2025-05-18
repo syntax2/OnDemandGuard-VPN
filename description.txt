@@ -1,0 +1,6 @@
+﻿Personal VPN Server on AWS Free Tier â€“ Secure your internet traffic, bypass geo-restrictions, and retain full control over your data. 
+This project walks you through setting up a high-performance VPN (WireGuard or OpenVPN) on a Linux EC2 instance, covering:
+- End-to-end encryption (AES-256, Curve25519)
+- Automated key management
+- Firewall (iptables/nftables) and NAT configuration
+- Scalability with Terraform/Ansible

@@ -10,3 +10,18 @@
 | **8. How does IP forwarding and NAT work for a VPN server?** | You enable `net.ipv4.ip_forward=1` so Linux routes traffic between `wg0` and `eth0`, then use an `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE` rule to NAT client traffic. |
 | **9. How do you ensure your Terraform runs are idempotent?** | Always run `terraform fmt` and `terraform validate`; avoid inline random IDs; pin provider versions via `required_providers`; break resources into logical modules.                 |
 | **10. How would you scale this VPN solution?**               | Introduce an **Autoscaling Group** + **Network Load Balancer**, use a launch template with the same WG bootstrap, store state in a shared Kubernetes ConfigMap or Consul.           |
+
+
+
+if you also wants to browse internet and dont expose your identity and be save from threads here is how you can setup your own vpn.
+
+
+Pre requisite :
+1. have an Aws Account , free tier would work 
+2. run the Terraform init and terraform apply command
+3. it will create required infra on AWS and setup your wiregaurd server on the AWS Ec2 instance using the bootstrap.sh 
+4. you need to install a wiregaurd client on your laptop and add the client.conf file and activate the client with it .
+5. for testing you can send a ping command which is already written in the test_connection.sh file and test that the VPN is working as expected.
+
+
+Save money and create your own vpn instead of watching add or paying a monthly subscription.
